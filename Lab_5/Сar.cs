@@ -481,8 +481,8 @@ namespace Lab_5
                 StopEngine();
 
                 _totalMilage += actualDistancePossible;
-                _totalConsumedFuelPrice += actualDistancePossible * _fuelConsumptionPer100km / 100.0;
-                _totalFuelConsumption += actualDistancePossible;
+                _totalConsumedFuelPrice +=( actualDistancePossible * _fuelConsumptionPer100km / 100.0) * _fuelPrice;
+                _totalFuelConsumption += fuelConsumed;
 
                 return $"Ran out of fuel after driving for {actualTimePossible:F2} minutes and {actualDistancePossible:F2} km. " +
                        $"The car stopped. Total milage: {_milage:F2} km. Please refuel.";
@@ -493,8 +493,8 @@ namespace Lab_5
                 _milage += distanceDrivenKM;
 
                 _totalMilage += distanceDrivenKM;
-                _totalConsumedFuelPrice += distanceDrivenKM * _fuelConsumptionPer100km / 100.0;
-                _totalFuelConsumption += distanceDrivenKM;
+                _totalConsumedFuelPrice += (distanceDrivenKM * _fuelConsumptionPer100km / 100.0) * _fuelPrice;
+                _totalFuelConsumption += fuelConsumed;
 
                 return $"Drove for {timeInMinutes:F2} minutes ({distanceDrivenKM:F2} km) at {_currentSpeed:F2} km/h. " +
                        $"Fuel consumed: {fuelConsumed:F2} liters. Remaining fuel: {_currentFuel:F2} / {_fuelCapacity} liters. " +
